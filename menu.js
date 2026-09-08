@@ -1,5 +1,6 @@
 const { affichertrajet, affichertickets } = require("./affichage")
-const { acheter, annuler} = require("./gestion")
+const { acheter, annuler } = require("./gestion")
+const {recherche } = require("./recherche")
 
 var prompt = require("prompt-sync")();
 const trips = [
@@ -193,7 +194,7 @@ price: 90
 },
 {
 id: 2, 
-passengerName: "Amin", 
+passengerName: "Amine", 
 tripId: 2, 
 seatNumber: 10, 
 price: 50
@@ -236,7 +237,7 @@ switch(choix){
     break;
     case 4:annuler(trips,tickets)
     break;
-    case 5:recherche(trips)
+    case 5:recherche(tickets,trips)
     break;
     case 6:filtrer(trips)
     break;
