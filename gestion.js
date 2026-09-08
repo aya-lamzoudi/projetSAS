@@ -1,4 +1,4 @@
-module.exports = {acheter, }
+module.exports = {acheter,annuler }
 var prompt = require("prompt-sync")();
 function acheter(trips, ticket) {
     
@@ -33,5 +33,26 @@ function acheter(trips, ticket) {
 }
 
 function annuler(trips, tickets) {
-    
+    let Id = parseInt(prompt("Veuillez saisir Identifiant du ticket : "));
+    let indexticket = -1;
+    for (let i = 0; i < tickets.length; i++){
+        if (Id == tickets[i].id) {
+            indexticket = i;
+            break;
+        }
+    }
+    if (indexticket == -1) {
+        console.log("Ticket introuvable. ");
+    } else {
+         for (let i = 0; i < trips.length; i++){
+        if (tickets[indexticket].tripId == trips[i].id) {
+            trips[i].availableSeats++;
+            break;
+        }
+        }
+        tickets.splice(indexticket, 1);
+        console.log("Ticket annulé avec succès. ")
+    }
+
+
 }
