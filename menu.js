@@ -1,4 +1,7 @@
-var prompt=require("prompt-sync")();
+const { affichertrajet, affichertickets } = require("./affichage")
+const { acheter } = require("./gestion")
+
+var prompt = require("prompt-sync")();
 const trips = [
     {
         id: 1,
@@ -181,6 +184,28 @@ const trips = [
         availableSeats: 50
     }
 ];
+const tickets = [{ 
+id: 1, 
+passengerName: "Ahmed", 
+tripId: 3, 
+seatNumber: 1, 
+price: 90 
+},
+{
+id: 2, 
+passengerName: "Amin", 
+tripId: 2, 
+seatNumber: 10, 
+price: 50
+    },
+{id: 3, 
+passengerName: "Reda", 
+tripId: 6, 
+seatNumber: 3, 
+price: 50
+}
+]; 
+
 let choix
 function menu(){
 do{
@@ -205,11 +230,11 @@ choix=parseInt(prompt("entre votre choix : "));
 switch(choix){
     case 1:affichertrajet(trips)
     break;
-    case 2:Acheter(trips)
+    case 2:acheter(trips,tickets)
     break;
-    case 3:affichertickets(trips)
+    case 3:affichertickets(tickets,trips)
     break;
-    case 4:annuler(trips)
+    case 4:annuler(trips,tickets)
     break;
     case 5:recherche(trips)
     break;
