@@ -1,4 +1,4 @@
-module.exports = {recherche,}
+module.exports = {recherche,filtrer}
 var prompt = require("prompt-sync")();
 
 function recherche(tickets,trips) {
@@ -31,3 +31,19 @@ function recherche(tickets,trips) {
    
 }
 
+function filtrer(trips) {
+    let ville = prompt("Veuillez saisir ville de depart : ");
+    let found = 0;
+    for (let i = 0; i < trips.length; i++){
+        if (trips[i].departure.toUpperCase() == ville.toUpperCase()) {
+             console.log(
+                `trajet: ${trips[i].departure} --> ${trips[i].destination}  |` +
+                `price : ${trips[i].price}DH  |` 
+            )
+            found++
+        } 
+    }
+    if (found==0) {
+        console.log("il y a aucun train qui part de cette ville");
+    }
+}
