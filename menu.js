@@ -1,5 +1,5 @@
 const { affichertrajet, affichertickets } = require("./affichage")
-const { acheter } = require("./gestion")
+const { acheter, annuler} = require("./gestion")
 
 var prompt = require("prompt-sync")();
 const trips = [
