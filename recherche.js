@@ -1,4 +1,4 @@
-module.exports = {recherche,filtrer}
+module.exports = {recherche,filtrer, trier}
 var prompt = require("prompt-sync")();
 
 function recherche(tickets,trips) {
@@ -38,7 +38,7 @@ function filtrer(trips) {
         if (trips[i].departure.toUpperCase() == ville.toUpperCase()) {
              console.log(
                 `trajet: ${trips[i].departure} --> ${trips[i].destination}  |` +
-                `price : ${trips[i].price}DH  |` 
+                `price : ${trips[i].price}DH  ` 
             )
             found++
         } 
@@ -46,4 +46,24 @@ function filtrer(trips) {
     if (found==0) {
         console.log("il y a aucun train qui part de cette ville");
     }
+}
+
+function trier(trips) {
+    let tritrips = trips;
+    for (let i = 0; i < tritrips.length - 1; i++){
+        for (let j = 0; j < tritrips.length - i - 1;j++){
+            if (tritrips[j].price > tritrips[j + 1].price) {
+                let tmp = tritrips[j];
+                tritrips[j] = tritrips[j + 1]
+                tritrips[j + 1] = tmp;
+            }
+        }
+    }
+    for (let i = 0; i < tritrips.length; i++){
+         console.log(
+                `${trips[i].departure} --> ${trips[i].destination}  :` +
+                `${trips[i].price}DH  ` 
+            )
+    }
+    
 }
