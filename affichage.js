@@ -45,7 +45,6 @@ function affichertickets(tickets, trips) {
         console.log("Aucun ticket enregistré. ");
     } else {
         for (let i = 0; i < tickets.length; i++) {
-            // tmp = tickets[i].tripId;
             for (let j = 0; j < trips.length; j++) {
                 if (tickets[i].tripId == trips[j].id) {
                     departure = trips[j].departure;
@@ -57,7 +56,7 @@ function affichertickets(tickets, trips) {
             console.log(
                 `ticket #${tickets[i].id} |` +
                 `passage:${tickets[i].passengerName}  |` +
-                `traget: ${departure} --> ${destination}  |` +
+                `trajet: ${departure} --> ${destination}  |` +
                 `price : ${price}DH  |` +
                 `seat : ${tickets[i].seatNumber}`
             )
