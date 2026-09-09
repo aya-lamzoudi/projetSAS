@@ -75,30 +75,91 @@ function affichertrajet(trips) {
     
     
 }
-
 function affichertickets(tickets, trips) {
-    let departure, destination, price;
-    
+
     if (tickets.length == 0) {
-        console.log("Aucun ticket enregistré. ");
-    } else {
-        for (let i = 0; i < tickets.length; i++) {
-            for (let j = 0; j < trips.length; j++) {
-                if (tickets[i].tripId == trips[j].id) {
-                    departure = trips[j].departure;
-                    destination = trips[j].destination;
-                    price = trips[j].price;
-                    break;
-                }
+        console.log("Aucun ticket enregistré.");
+        return;
+    }
+
+    // Les titres des colonnes pour ajouter space
+    let id = "ID";
+    let trajet=" Trajet"
+    let passenger = "passanger";
+    let seat = "Place";
+    let price = "Prix";
+
+    while (id.length < 5) {
+        id += " ";
+    }
+
+    while (passenger.length < 15) {
+        passenger += " ";
+    }
+
+    while (trajet.length < 30) {
+        trajet += " ";
+    }
+
+    while (seat.length < 8) {
+        seat += " ";
+    }
+
+    while (price.length < 10) {
+        price += " ";
+    }
+
+  
+    console.log("+-----+---------------+------------------------------+--------+----------+");
+    console.log(`|${id}|${passenger}|${trajet}|${seat}|${price}|`);
+    console.log("+-----+---------------+------------------------------+--------+----------+");
+
+
+    for (let i = 0; i < tickets.length; i++) {
+
+        let id = String(tickets[i].id);
+        let passenger = tickets[i].passengerName;
+        let trajet=""
+        let seat = String(tickets[i].seatNumber);
+        let price = String(tickets[i].price) + " DH";
+
+        // Chercher le trajet correspondant au tripId
+        for (let j = 0; j < trips.length; j++) {
+
+            if (tickets[i].tripId == trips[j].id) {
+
+                trajet = trips[j].departure +"-->"+trips[j].destination;
+
+                break;
             }
-            console.log(
-                `ticket #${tickets[i].id} |` +
-                `passage:${tickets[i].passengerName}  |` +
-                `trajet: ${departure} --> ${destination}  |` +
-                `price : ${price}DH  |` +
-                `seat : ${tickets[i].seatNumber}`
-            )
         }
+
+        while (id.length < 5) {
+            id += " ";
+        }
+
+        while (passenger.length < 15) {
+            passenger += " ";
+        }
+
+        while (trajet.length < 30) {
+            trajet += " ";
+        }
+
+
+        while (seat.length < 8) {
+            seat += " ";
+        }
+
+        while (price.length < 10) {
+            price += " ";
+        }
+
+        // Afficher le ticket
+        console.log(
+            `|${id}|${passenger}|${trajet}|${seat}|${price}|`
+        );
+
+        console.log("+-----+---------------+------------------------------+--------+----------+");
     }
 }
-

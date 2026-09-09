@@ -1,38 +1,40 @@
 module.exports = {acheter,annuler }
 var prompt = require("prompt-sync")();
 function acheter(trips, ticket) {
-    
-    let found = -1;
-    let tripId ,price;
+    let found = false;
     let name = prompt("Veuillez saisir votre nom : ");
     let Id = parseInt(prompt("Veuillez saisir Identifiant du trajet :"));
     for (let i = 0; i < trips.length; i++){
         if (Id == trips[i].id && trips[i].availableSeats > 0) {
             trips[i].availableSeats--;
             seatnumber = parseInt(50 - trips[i].availableSeats);
-            tripId = trips[i].id;
-            price = trips[i].price;
-            found = 1
-            break;
-        } else if (Id == trips[i].id && trips[i].availableSeats < 0) {
-            found=2
-        }
-    }
-    if (found == 1) {
-        let newticket = {
+         let newticket = {
             id: ticket.length + 1,
             passengerName: name,
-            tripId: tripId,
+            tripId: trips[i].id,
             seatNumber: seatnumber,
-            price: price
+            price: trips[i].price,
         }
         ticket.push(newticket)
-        console.log("Votre opération a été un succès.")
-        
-    } else if (found == 2) {
-        console.log("Train complet.")
-        
-    }else  console.log("Ce voyage n'est pas disponible.") 
+            console.log("Votre opération a été un succès.")
+            console.log("=================votre ticket=======================")
+            
+console.log(`Id: ${newticket.id}
+passanger:${newticket.passengerName}
+trajet:${trips[i].departure}-->${trips[i].destination}
+place:${newticket.seatNumber}
+prix:${trips[i].price}DH`)
+            found = true
+            break;
+        } else if (Id == trips[i].id && trips[i].availableSeats == 0) {
+            found = true
+            console.log("Train complet.")
+            break;
+        }
+    }
+    if (!found) {
+        console.log("Trajet introuvable.");
+  }
     
 
 }

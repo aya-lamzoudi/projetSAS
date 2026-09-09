@@ -13,7 +13,7 @@ const trips = [
         departureTime: "07:30",
         arrivalTime: "08:30",
         price: 25,
-        availableSeats: 50
+        availableSeats: 0
     },
     {
         id: 2,
@@ -187,12 +187,13 @@ const trips = [
         availableSeats: 50
     }
 ];
-const tickets = [{ 
+const tickets = [
+    { 
 id: 1, 
 passengerName: "Ahmed", 
 tripId: 3, 
 seatNumber: 1, 
-price: 90 
+price: 140
 },
 {
 id: 2, 
@@ -205,9 +206,52 @@ price: 50
 passengerName: "Reda", 
 tripId: 6, 
 seatNumber: 3, 
-price: 50
+price: 120
+},
+{id: 4, 
+passengerName: "aya", 
+tripId: 10, 
+seatNumber: 3, 
+price: 30
+},
+{id: 5, 
+passengerName: "karim", 
+tripId: 10, 
+seatNumber: 3, 
+price: 30
+},
+{id: 6, 
+passengerName: "Reda", 
+tripId: 11, 
+seatNumber: 3, 
+price: 95
+},
+{id: 7, 
+passengerName: "malika", 
+tripId: 4, 
+seatNumber: 3, 
+price: 65
+},
+{id: 8, 
+passengerName: "Reda", 
+tripId: 19, 
+seatNumber: 3, 
+price: 100
+},
+{id: 9, 
+passengerName: "Reda", 
+tripId: 16, 
+seatNumber: 3, 
+price: 105
+},
+{id: 10, 
+passengerName: "Reda", 
+tripId: 16, 
+seatNumber: 3, 
+price: 30
 }
-]; 
+];
+
 
 function statistique() {
     let choice
