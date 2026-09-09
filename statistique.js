@@ -1,4 +1,4 @@
-module.exports = { tickettotale, chiffretotal}
+module.exports = { tickettotale, chiffretotal, plusvendue}
 const{menu}=require ("./menu.js")
 var prompt = require("prompt-sync")();
 
@@ -15,6 +15,15 @@ function chiffretotal(tickets) {
     console.log(`Chiffre d'affaires total : ${total}DH`);
 }
 
-function plusvendue(tickets){
-          
+function plusvendue(tickets,trips) {
+    let d = [];
+    for (let i = 0; i < tickets.length; i++){
+        for (let j = 0; j < trips.length; j++){
+            if (tickets[i].tripId == trips[j].id) {
+                d.push(j);
+            }
+            
+        }
+    }
+    
 }

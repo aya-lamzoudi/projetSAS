@@ -2,7 +2,7 @@ module.exports = { menu }
 const { affichertrajet, affichertickets } = require("./affichage")
 const { acheter, annuler } = require("./gestion")
 const { recherche, filtrer, trier } = require("./recherche")
-const {tickettotale, chiffretotal} = require("./statistique")
+const {tickettotale, chiffretotal, plusvendue} = require("./statistique")
 
 var prompt = require("prompt-sync")();
 const trips = [
@@ -225,7 +225,7 @@ function statistique() {
             break;
         case 2:chiffretotal(tickets)
             break;
-        case 3:plusvendue(tickets)
+        case 3:plusvendue(tickets,trips)
             break;
         case 4:menu()
         break;
