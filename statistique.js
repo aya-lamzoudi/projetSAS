@@ -1,5 +1,5 @@
-module.exports = { tickettotale, chiffretotal, plusvendue}
-const{menu}=require ("./menu.js")
+module.exports = { tickettotale, chiffretotal,plusvendue}
+// const{menu}=require ("./menu.js")
 var prompt = require("prompt-sync")();
 
 function tickettotale(tickets) {
@@ -15,15 +15,33 @@ function chiffretotal(tickets) {
     console.log(`Chiffre d'affaires total : ${total}DH`);
 }
 
-function plusvendue(tickets,trips) {
-    let d = [];
+function plusvendue(tickets, trips) {
+
+    let find = {};
     for (let i = 0; i < tickets.length; i++){
-        for (let j = 0; j < trips.length; j++){
-            if (tickets[i].tripId == trips[j].id) {
-                d.push(j);
-            }
-            
+           let id=tickets[i].tripId
+           if(find[id]){
+            find[id]++
+           }else{
+            find[id]=1
+           }
+
         }
-    }
-    
+        let max=0;
+        let tripmax;
+        for(let idtrip in find){
+            if(find[idtrip]>max){
+                max=find[idtrip]
+                tripmax=idtrip;
+            }
+        }
+        for(let i=0;i<trips.length;i++){
+        if(tripmax == trips[i].id){
+                console.log(`Trajet le plus vendu : ${trips[i].departure} --> ${trips[i].destination} : ${max} tickets vendus` )
+            }
+        }
+ 
+
 }
+
+    
