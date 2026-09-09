@@ -1,43 +1,81 @@
 module.exports = {affichertrajet, affichertickets}
 var prompt = require("prompt-sync")();
-
 function affichertrajet(trips) {
-for (let i = 0; i < trips.length; i++) {
-    console.log(
-        `#${trips[i].id}| ${trips[i].departure} → ${trips[i].destination} |   ` +
-        `Départ : ${trips[i].departureTime} |  ` +
-        `Arrivée : ${trips[i].arrivalTime} |   ` +
-        `Prix : ${trips[i].price} DH |   ` +
-        `  Places disponibles : ${trips[i].availableSeats}`
-    );
-}
 
+    let id=" id"
+    let departure=" departure"
+    let destination= " destination"
+    let departureTime=" departureTime"
+    let arrivalTime=" arrivalTime"
+    let price=" price"
+    let availableSeats= " availableSeats"
+
+    while(id.length<5){
+        id+=" "
+    }
+    while(departure.length<15){
+        departure+=" "
+    }
+    while(destination.length<15){
+        destination+=" "
+    }
+    while(departureTime.length<15){
+        departureTime+=" "
+    }
+    while(arrivalTime.length<15){
+        arrivalTime+=" "
+    }
+    while(price.length<10){
+        price+=" "
+    }
+    while(availableSeats.length<18){
+        availableSeats+=" "
+    }
+
+
+    console.log("+-----+---------------+---------------+---------------+---------------+----------+------------------+")
+    console.log(`|${id}`+`|${departure}`+`|${destination}`+`|${departureTime}`+`|${arrivalTime}`+`|${price}`+`|${availableSeats}|`)
+    console.log("+-----+---------------+---------------+---------------+---------------+----------+------------------+")
+    for(let i=0;i<trips.length;i++){
+
+    let id=String(trips[i].id);
+    let departure= trips[i].departure
+    let destination= trips[i].destination
+    let departureTime=trips[i].departureTime
+    let arrivalTime=trips[i].arrivalTime
+    let price=String(trips[i].price)
+    let availableSeats=String(trips[i].availableSeats)
+
+    while(id.length<5){
+        id+=" "
+    }
+    while(departure.length<15){
+        departure+=" "
+    }
+    while(destination.length<15){
+        destination+=" "
+    }
+    while(departureTime.length<15){
+        departureTime+=" "
+    }
+    while(arrivalTime.length<15){
+        arrivalTime+=" "
+    }
+    while(price.length<10){
+        price+=" "
+    }
+    while(availableSeats.length<18){
+        availableSeats+=" "
+    }
+
+     console.log(`|${id}`+`|${departure}`+`|${destination}`+`|${departureTime}`+`|${arrivalTime}`+`|${price}`+`|${availableSeats}|`)
+
+ console.log("+-----+---------------+---------------+---------------+---------------+----------+------------------+")
+    }
     
-// console.log(
-//     "ID".padEnd(4) +
-//     "Départ".padEnd(15) +
-//     "Destination".padEnd(15) +
-//     "Départ".padEnd(10) +
-//     "Arrivée".padEnd(10) +
-//     "Prix".padEnd(10) +
-//     "Places"
-// );
-
-// console.log("-".repeat(74));
-
-// for (let i = 0; i < trips.length; i++) {
-//     console.log(
-//         String(trips[i].id).padEnd(4) +
-//         trips[i].departure.padEnd(15) +
-//         trips[i].destination.padEnd(15) +
-//         trips[i].departureTime.padEnd(10) +
-//         trips[i].arrivalTime.padEnd(10) +
-//         (trips[i].price + " DH").padEnd(10) +
-//         trips[i].availableSeats
-//     );
-// }
-    // console.table(affichage);
+    
 }
+
 function affichertickets(tickets, trips) {
     let departure, destination, price;
     
