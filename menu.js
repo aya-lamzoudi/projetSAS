@@ -210,14 +210,15 @@ price: 50
 ]; 
 
 function statistique() {
-    let choice;
-    do {
+    let choice
+        do {
         console.log(`
         1.Nombre total de tickets vendus
         2.Chiffre d'affaires total 
         3.Trajet le plus vendu 
         4. Retour au menu
             `)
+    do{
         choice = parseInt(prompt("enter votre choix : "));
     } while (choice < 1 || choice > 4)
     switch (choice) {
@@ -230,7 +231,9 @@ function statistique() {
         case 4:menu()
         break;
     }
+}while(choice != 4)
 }
+
 let choix
 function menu(){
 do{
