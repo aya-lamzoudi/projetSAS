@@ -1,6 +1,8 @@
+module.exports = { menu }
 const { affichertrajet, affichertickets } = require("./affichage")
 const { acheter, annuler } = require("./gestion")
-const {recherche, filtrer, trier} = require("./recherche")
+const { recherche, filtrer, trier } = require("./recherche")
+const {tickettotale, chiffretotal} = require("./statistique")
 
 var prompt = require("prompt-sync")();
 const trips = [
@@ -207,26 +209,49 @@ price: 50
 }
 ]; 
 
+function statistique() {
+    let choice;
+    do {
+        console.log(`
+        1.Nombre total de tickets vendus
+        2.Chiffre d'affaires total 
+        3.Trajet le plus vendu 
+        4. Retour au menu
+            `)
+        choice = parseInt(prompt("enter votre choix : "));
+    } while (choice < 1 || choice > 4)
+    switch (choice) {
+        case 1:tickettotale(tickets)
+            break;
+        case 2:chiffretotal(tickets)
+            break;
+        case 3:plusvendue(tickets)
+            break;
+        case 4:menu()
+        break;
+    }
+}
 let choix
 function menu(){
 do{
     
     console.log(`
-================================= 
-RAILWAY MANAGER 
-================================= 
-1. Afficher les trajets 
-2. Acheter un ticket 
-3. Afficher les tickets 
-4. Annuler un ticket 
-5. Rechercher un ticket 
-6. Filtrer les trajets 
-7. Trier les trajets 
-0. Quitter 
+        ================================= 
+        RAILWAY MANAGER 
+        ================================= 
+        1. Afficher les trajets 
+        2. Acheter un ticket 
+        3. Afficher les tickets 
+        4. Annuler un ticket 
+        5. Rechercher un ticket 
+        6. Filtrer les trajets 
+        7. Trier les trajets 
+        8. Statistiques 
+        0. Quitter 
 `)
 do{
 choix=parseInt(prompt("entre votre choix : "));
-}while(choix<0 || choix>7)
+}while(choix<0 || choix>8)
 
 switch(choix){
     case 1:affichertrajet(trips)
@@ -242,7 +267,10 @@ switch(choix){
     case 6:filtrer(trips)
     break;
     case 7:trier(trips)
-    break;
+        break;
+    case 8:statistique()
+        break;
+    
 }
 
 
