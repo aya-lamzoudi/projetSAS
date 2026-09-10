@@ -13,7 +13,7 @@ const trips = [
         departureTime: "07:30",
         arrivalTime: "08:30",
         price: 25,
-        availableSeats: 0
+        availableSeats: 50
     },
     {
         id: 2,
@@ -190,20 +190,20 @@ const trips = [
 const tickets = [
     { 
 id: 1, 
-passengerName: "Ahmed", 
+passengerName: "ahmed", 
 tripId: 3, 
 seatNumber: 1, 
 price: 140
 },
 {
 id: 2, 
-passengerName: "Amine", 
+passengerName: "amine", 
 tripId: 2, 
 seatNumber: 10, 
 price: 50
     },
 {id: 3, 
-passengerName: "Reda", 
+passengerName: "reda", 
 tripId: 6, 
 seatNumber: 3, 
 price: 120
@@ -221,7 +221,7 @@ seatNumber: 3,
 price: 30
 },
 {id: 6, 
-passengerName: "Reda", 
+passengerName: "khadija", 
 tripId: 11, 
 seatNumber: 3, 
 price: 95
@@ -233,19 +233,19 @@ seatNumber: 3,
 price: 65
 },
 {id: 8, 
-passengerName: "Reda", 
+passengerName: "amina", 
 tripId: 19, 
 seatNumber: 3, 
 price: 100
 },
 {id: 9, 
-passengerName: "Reda", 
+passengerName: "halima", 
 tripId: 16, 
 seatNumber: 3, 
 price: 105
 },
 {id: 10, 
-passengerName: "Reda", 
+passengerName: "othman", 
 tripId: 16, 
 seatNumber: 3, 
 price: 30
@@ -277,7 +277,6 @@ function statistique() {
     }
 }while(choice != 4)
 }
-
 let choix
 function menu(){
 do{

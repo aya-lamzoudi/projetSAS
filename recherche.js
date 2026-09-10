@@ -1,17 +1,19 @@
 module.exports = {recherche,filtrer, trier}
 var prompt = require("prompt-sync")();
 
-function recherche(tickets,trips) {
+function recherche(tickets, trips) {
+    
     let name = prompt("Veuillez saisir votre nom : ");
     let found = false;
-    let index
+    // let index
     for (let i = 0; i < tickets.length; i++) {
         if (tickets[i].passengerName == name) {
+            found = true;
             for (let j = 0; j < trips.length; j++) {
                 if (tickets[i].tripId == trips[j].id) {
-                    departure = trips[j].departure;
-                    destination = trips[j].destination;
-                    price = trips[j].price;
+                    let departure = trips[j].departure;
+                    let destination = trips[j].destination;
+                    let price = trips[j].price;
                     console.log(
                         `ticket #${tickets[i].id} |` +
                         `passage:${tickets[i].passengerName}  |` +
@@ -21,34 +23,36 @@ function recherche(tickets,trips) {
                     )
                 }
             }
-            found = true;
-        
+            
+            
         }
     }
     if (!found) {
-        console.log("il n'y a aucun ticket a ce nom")
+        console.log("il n'y a aucun ticket avec ce nom")
     } 
    
 }
 
 function filtrer(trips) {
-    let ville = prompt("Veuillez saisir ville de depart : ");
-    let found = 0;
+    let ville = prompt("Veuillez saisir la ville de départ : ");
+    let found = false;
     for (let i = 0; i < trips.length; i++){
         if (trips[i].departure.toUpperCase() == ville.toUpperCase()) {
              console.log(
                 `trajet: ${trips[i].departure} --> ${trips[i].destination}  |` +
                 `price : ${trips[i].price}DH  ` 
             )
-            found++
+            found=true
         } 
     }
-    if (found==0) {
+    if (!found) {
         console.log("il y a aucun train qui part de cette ville");
     }
 }
 
 function trier(trips) {
+    
+    //trier par prix
     let tritrips = trips;
     for (let i = 0; i < tritrips.length - 1; i++){
         for (let j = 0; j < tritrips.length - i - 1;j++){
@@ -59,6 +63,7 @@ function trier(trips) {
             }
         }
     }
+    console.log("voice tous les trajet trier par prix : ")
     for (let i = 0; i < tritrips.length; i++){
          console.log(
                 `${trips[i].departure} --> ${trips[i].destination}  :` +

@@ -1,5 +1,5 @@
 module.exports = {affichertrajet, affichertickets}
-var prompt = require("prompt-sync")();
+
 function affichertrajet(trips) {
 
     let id=" id"
